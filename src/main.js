@@ -14,8 +14,6 @@ const input = document.querySelector('.input');
 
 const div = document.querySelector('.gallery');
 
-const loading = document.querySelector('.loading');
-
 const BASE_URL = 'https://pixabay.com/api/?';
 
 const key = '47340779-69736f13d332e70374a06741a';
@@ -68,7 +66,10 @@ function getPhotos() {
     })
     .catch(error => console.error(error))
     .finally(() => {
-      document.querySelector('.loading').remove();
+      const loadingCSS = document.querySelector('.loading');
+      if (loadingCSS) {
+        loadingCSS.remove();
+      }
     });
 }
 
